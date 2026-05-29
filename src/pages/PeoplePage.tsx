@@ -12,11 +12,10 @@ export const PeoplePage = () => {
   const { slug } = useParams();
 
   const [people, setPeople] = useState<Person[]>([]);
-  const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState(true);
   const [hasError, setHasError] = useState(false);
 
   useEffect(() => {
-    setLoading(true);
 
     getPeople()
       .then(data => {
