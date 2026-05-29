@@ -25,33 +25,43 @@ export const PeopleTable = ({ people, selectedSlug }: Props) => (
 
     <tbody>
       {people.map(person => {
-  const mother = people.find(p => p.name === person.motherName);
-  const father = people.find(p => p.name === person.fatherName);
+        const mother = people.find(p => p.name === person.motherName);
+        const father = people.find(p => p.name === person.fatherName);
 
-  return (
-    <tr
-      key={person.slug}
-      data-cy="person"
-      className={person.slug === selectedSlug ? 'has-background-warning' : ''}
-    >
-      <td>
-        <PersonLink person={person} />
-      </td>
+        return (
+          <tr
+            key={person.slug}
+            data-cy="person"
+            className={
+              person.slug === selectedSlug ? 'has-background-warning' : ''
+            }
+          >
+            <td>
+              <PersonLink person={person} />
+            </td>
 
-      <td>{person.sex}</td>
-      <td>{person.born}</td>
-      <td>{person.died}</td>
+            <td>{person.sex}</td>
+            <td>{person.born}</td>
+            <td>{person.died}</td>
 
-      <td>
-        {mother ? <PersonLink person={mother} /> : person.motherName || '-'}
-      </td>
+            <td>
+              {mother ? (
+                <PersonLink person={mother} />
+              ) : (
+                person.motherName || '-'
+              )}
+            </td>
 
-      <td>
-        {father ? <PersonLink person={father} /> : person.fatherName || '-'}
-      </td>
-    </tr>
-  );
-})}
+            <td>
+              {father ? (
+                <PersonLink person={father} />
+              ) : (
+                person.fatherName || '-'
+              )}
+            </td>
+          </tr>
+        );
+      })}
     </tbody>
   </table>
 );

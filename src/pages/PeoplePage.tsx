@@ -16,7 +16,6 @@ export const PeoplePage = () => {
   const [hasError, setHasError] = useState(false);
 
   useEffect(() => {
-
     getPeople()
       .then(data => {
         setPeople(data);
